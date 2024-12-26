@@ -1,0 +1,106 @@
+﻿@model List<Deneme3.Models.PoemModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poems</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Content/images/manzara7.jpg');
+            line-height: 1.6;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4a90e2;
+            margin-top: 30px;
+        }
+
+        .poem-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .poem-container ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .poem-container li {
+                margin-bottom: 20px;
+                padding: 15px;
+                background-color: #f9f9f9;
+                border-left: 5px solid #4a90e2;
+                border-radius: 5px;
+                transition: transform 0.3s, background-color 0.3s;
+            }
+
+                .poem-container li:hover {
+                    transform: scale(1.02);
+                    background-color: #e8f4fd;
+                }
+
+            .poem-container strong {
+                display: block;
+                font-size: 1.5rem;
+                color: #4a90e2;
+                margin-bottom: 10px;
+            }
+
+            .poem-container p {
+                margin: 0;
+                font-size: 1.2rem;
+                color: #555;
+            }
+
+        .no-poems {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #888;
+            margin-top: 20px;
+        }
+        header {
+            background-color: cornflowerblue;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Şiirler</h1>
+    </header>
+
+    <div class="poem-container">
+        @if (Model != null && Model.Count > 0)
+        {
+            <ul>
+                @foreach (var poem in Model)
+                {
+                    <li>
+                        <strong>@poem.Title</strong>
+                        <p>@poem.Content</p>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="no-poems">No poems available.</p>
+        }
+    </div>
+</body>
+</html>

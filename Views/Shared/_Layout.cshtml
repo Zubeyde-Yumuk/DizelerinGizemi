@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ASP.NET Uygulamam</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+
+
+
+        .menu ul {
+            list-style: none;
+            margin: 1;
+            padding: 1;
+            width: 100%;
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        display:flex;
+        justify-content: center;
+
+        nav {
+        }
+
+        header {
+            background-color: cornflowerblue;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .content {
+            padding-top: 60px; /* İçeriği menünün altına kaydırma */
+        }
+
+
+
+        .menu ul {
+            list-style: none;
+            margin: 1;
+            padding: 1;
+            width: 100%;
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        header {
+            background-color: lightblue;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .content {
+            padding-top: 60px; /* İçeriği menünün altına kaydırma*/
+        }
+
+
+
+        .menu li {
+            float: left;
+            position: relative;
+            width: 300px;
+        }
+
+
+        .menu ul li ul {
+            display: none;
+        }
+
+        .menu ul li:hover ul {
+            display: block;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            background: lightblue;
+            display: block;
+            color: black;
+            font-weight: bold;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .menu ul li ul li a {
+            background: lightblue;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid wheat;
+            font-size: .8em;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+            .menu li a {
+                text-decoration: none;
+                padding: 100px;
+                border-radius: none;
+            }
+
+                .menu li a:hover {
+                    background: lightgrey;
+                    width: 100%;
+                    border-radius: 10px;
+                    transition: 0.5s;
+                }
+
+        .menu ul li ul li a:hover {
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-collapse bg-light">
+
+        <div class="container">
+
+            <p class="site-title">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/images/indir.jpeg" alt=" " height="80" width="80">
+                </a>
+            </p>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Gezintiyi aç/kapat" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+
+            </div>
+            <nav class="menu">
+                <ul>
+
+                    <li>@Html.ActionLink("Şiirler", "Index", "Poem2", new { area = "" }, new { @class = "link-class" })</li>
+
+                    <li>@Html.ActionLink("Şairler", "Index", "Poem", new { area = "" }, new { @class = "link-class" })</li>
+                    <!-- yeni yaptigimiz-->
+
+
+                    <li>
+                        <a href="#">Sistem</a>
+                        <ul>
+
+                            <li>@Html.ActionLink("Kayıt", "Index", "Kayit", new { area = "" }, new { @class = "link-class" })</li>
+                            <li>@Html.ActionLink("Giriş", "Index", "Giris", new { area = "" }, new { @class = "link-class" })</li>
+
+
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Hakkımızda", "View", "Test2", new { area = "" }, new { @class = "link-class" })</li>
+
+                    <li>
+                        <a href="#">Web Tasarım</a>
+
+                        <ul>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - ASP.NET Uygulamam</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

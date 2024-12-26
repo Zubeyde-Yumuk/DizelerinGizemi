@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şiirler ve Şairler Platformu</title>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Content/images/manzara5.jpg') 
+        }
+
+       
+
+            header h1 {
+                margin: 0;
+                color: white;
+                font-size: 2rem;
+            }
+
+        nav {
+            background-color: #5aa7db;
+            padding: 10px 0;
+        }
+
+        .menu ul {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .menu a:hover {
+                background-color: #479bcf;
+            }
+
+        .content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .content h1 {
+                color: #5aa7db;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .content h2 {
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+            .content p {
+                line-height: 1.6;
+                color: #555;
+                margin-bottom: 10px;
+            }
+
+            .content h3 {
+                color: #5aa7db;
+                text-align: right;
+                font-style: italic;
+                margin-top: 20px;
+            }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #87ceeb;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="content">
+        @model Deneme3.Models.HomeModel
+
+        <h1>Günün Şiiri</h1>
+
+        @if (Model != null)
+        {
+            <div>
+                <h2>@Model.Title</h2>
+                @foreach (var cont in Model.Content)
+                {
+                    <p>@cont</p>
+                }
+                <h3>@Model.Author</h3>
+            </div>
+        }
+        else
+        {
+            <p>Bugün için bir şiir bulunamadı.</p>
+        }
+    </div>
+
+    <footer>
+        &copy; 2024 Şiirler ve Şairler Platformu. Tüm hakları saklıdır.
+    </footer>
+
+</body>
+</html>
+
